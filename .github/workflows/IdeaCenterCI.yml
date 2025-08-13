@@ -1,0 +1,30 @@
+name: IdeaCenter CI 
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment:
+      BASEURL:"http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:84"
+      USER_EMAIL:"lemonade@test.com"
+      USER_PASSWORD:"123asd"
+      
+    steps:
+    - name: Checkout the repo
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build the solution
+      run: dotnet build --no-restore
+    - name: Run tests
+      run: dotnet test --no-build --verbosity normal

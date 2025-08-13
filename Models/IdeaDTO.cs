@@ -10,7 +10,7 @@ namespace IdeaCenterAPITests.Models
     public class IdeaDTO
     {
         [JsonPropertyName("title")]
-        public string Title{ get; set; }
+        public string Title { get; set; }
 
         [JsonPropertyName("description")]
         public string Description{ get; set; }

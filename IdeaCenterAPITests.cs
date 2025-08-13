@@ -42,6 +42,8 @@ namespace IdeaCenterAPITests
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
+                Assert.That(response.Content,Is.Not.Null,"Response content is not as expected");
+
                 var responseBody = JsonSerializer.Deserialize<JsonElement>(response.Content);
                 var accessToken = responseBody.GetProperty("accessToken").GetString();
 
@@ -115,6 +117,8 @@ namespace IdeaCenterAPITests
             Assert.That(allIdeas.Length, Is.GreaterThan(0), "Listed items are less than one");
 
             lastIdeaId = allIdeas[allIdeas.Length - 1].IdeaId;
+
+            Assert.That(lastIdeaId, Is.Not.Null);
         }
 
         [Order(3)]

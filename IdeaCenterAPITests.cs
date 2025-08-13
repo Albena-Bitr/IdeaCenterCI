@@ -82,7 +82,11 @@ namespace IdeaCenterAPITests
             // Assert
             Assert.That(createResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Status code is not as expected");
 
+            Assert.That(createResponse.Content, Is.Not.Null, "Response content is not as expected");
+
             var createdIdea = JsonSerializer.Deserialize<ApiResponseDTO>(createResponse.Content);
+
+            Assert.That(createdIdea, Is.Not.Null);
 
             Assert.That(createdIdea.Msg, Is.EqualTo(expectedMessage), "Response message is not as expected");
         }
@@ -102,7 +106,11 @@ namespace IdeaCenterAPITests
             // Assert
             Assert.That(getAllResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Status code is not as expected");
 
+            Assert.That(getAllResponse.Content, Is.Not.Null, "Response content is not as expected");
+
             var allIdeas = JsonSerializer.Deserialize<ApiResponseDTO[]>(getAllResponse.Content);
+
+            Assert.That(allIdeas, Is.Not.Null);
 
             Assert.That(allIdeas.Length, Is.GreaterThan(0), "Listed items are less than one");
 
@@ -134,7 +142,11 @@ namespace IdeaCenterAPITests
             // Assert
             Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Status code is not as expected");
 
+            Assert.That(updateResponse.Content, Is.Not.Null, "Response content is not as expected");
+
             var updatedIdea = JsonSerializer.Deserialize<ApiResponseDTO>(updateResponse.Content);
+
+            Assert.That(updatedIdea,Is.Not.Null);
 
             Assert.That(updatedIdea.Msg, Is.EqualTo(expectedMessage), "Response message is not as expected");
         }

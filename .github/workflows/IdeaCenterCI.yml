@@ -10,10 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment:
-      BASEURL:"http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:84"
-      USER_EMAIL:"lemonade@test.com"
-      USER_PASSWORD:"123asd"
+    env:
+      API_BASEURL: "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:84"
+      USER_EMAIL: "lemonade@test.com"
+      USER_PASSWORD: "123asd"
       
     steps:
     - name: Checkout the repo

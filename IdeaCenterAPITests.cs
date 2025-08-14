@@ -10,9 +10,9 @@ namespace IdeaCenterAPITests
     public class IdeaCenterAPITests : IDisposable
     {
         private RestClient client;
-        private const string BaseUrl = Environment.GetEnvironmentVariable(API_BASEURL);
-        private const string Email = Environment.GetEnvironmentVariable(USER_EMAIL);
-        private const string Password = Environment.GetEnvironmentVariable( USER_PASSWORD);
+        private static string BaseUrl = Environment.GetEnvironmentVariable("API_BASEURL");
+        private static string Email = Environment.GetEnvironmentVariable("USER_EMAIL");
+        private static string Password = Environment.GetEnvironmentVariable("USER_PASSWORD");
         private static string lastIdeaId;
 
         [OneTimeSetUp]

@@ -10,9 +10,9 @@ namespace IdeaCenterAPITests
     public class IdeaCenterAPITests : IDisposable
     {
         private RestClient client;
-        private const string BaseUrl = "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com:84";
-        private const string Email = "lemonade@test.com";
-        private const string Password = "123asd";
+        private const string BaseUrl = Environment.GetEnvironmentVariable(API_BASEURL);
+        private const string Email = Environment.GetEnvironmentVariable(USER_EMAIL);
+        private const string Password = Environment.GetEnvironmentVariable( USER_PASSWORD);
         private static string lastIdeaId;
 
         [OneTimeSetUp]
